@@ -9,22 +9,22 @@ public class PlayGameTest {
         Scanner in = new Scanner(System.in);
 
         Game game = new Game();
-        boolean gameFail = true;
         int gameType = 0;
         boolean gameLun = false;
         boolean gameStatus = false;
+        int userPick = 0;
 
         //게임 설명 및 게임 타입 선택 V1
         game.gameInfo();
         do {
             gameType = in.nextInt();
-            gameLun = game.gameTypeValidation(gameType);
+            gameLun = game.gameTypeValidation(gameType); //검증
         } while (!gameLun);
 
         //게임 실행
         do {
             game.runGameInput();
-            int userPick = in.nextInt();
+            userPick = in.nextInt();
             gameStatus = game.runGameOutput(userPick);
         } while (gameStatus);
 
